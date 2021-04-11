@@ -8,7 +8,7 @@ function App() {
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" style={{justifyContent: 'center', marginTop: '50px'}} id="navbarText">
+            <div className="collapse navbar-collapse" style={{justifyContent: 'center'}} id="navbarText">
                 <div className="menu">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
