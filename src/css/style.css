@@ -368,3 +368,72 @@ label, legend, input, textarea, select {
 
 .card-text-b {
   text-align: left; }
+
+  #decre{
+    width: 100px; 
+    font-size: 20px;
+    font-weight: bold; 
+    background-color: white; 
+    border: 2px solid lightgray; 
+    border-right: none; 
+    outline: none; 
+    cursor: pointer; 
+    color: #c47500; 
+    border-top-left-radius: 5px; 
+    border-bottom-left-radius: 5px; 
+    padding-top: 5px; 
+    padding-bottom: 5px;
+  }
+
+  #incre{
+    width: 100px; 
+    font-size: 20px; 
+    font-weight: bold; 
+    background-color: white; 
+    border: 2px solid lightgray; 
+    border-left: none; 
+    outline: none; 
+    cursor: pointer; 
+    color: #c47500; 
+    border-top-right-radius: 5px; 
+    border-bottom-right-radius: 5px; 
+    padding-top: 5px; 
+    padding-bottom: 5px;
+  }
+
+  .inputValor{
+    width: 200px; 
+    font-size: 20px; 
+    text-align: center; 
+    outline: none; 
+    border: 2px solid lightgray; 
+    border-left: none; 
+    border-right: none; 
+    padding-top: 6px; 
+    padding-bottom: 4px;
+  }
+
+  .botonAgregarCarrito{
+    width: 401px; 
+    font-size: 15px; 
+    background-color: #c47500; 
+    color: white; 
+    padding-top: 5px; 
+    padding-bottom: 5px; 
+    border: 1px solid #c47500;
+    border-radius: 5px; 
+    outline: none; 
+    cursor: pointer; 
+    letter-spacing: 2px;
+    font-family: 'Poppins';
+  }
+
+  .botonAgregarCarrito:focus{
+    outline: none;
+  }
+
+  .noStock{
+    font-family: 'Poppins';
+    font-size: 20px;
+    margin-top: 2rem;
+  }
