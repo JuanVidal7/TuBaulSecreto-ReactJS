@@ -42,9 +42,9 @@ export default function Item({ data }) {
                     <p className="card-text">{data.description}</p>
                     <br />
                     <div className="container-fluid">
-                        <button onClick={onDecrement} className="decre" id={"decre"+data.id} name="decrement" type="button">-</button>
+                        <button onClick={onDecrement} className="decre" id={"decre"+data.id} name="decrement" type="button" style={{outline: 'transparent'}}>-</button>
                         <input value={number} name="valores" type="text" className="inputValor" />
-                        <button onClick={onIncrement} className="incre" id={"incre"+data.id} name="increment" type="button">+</button>
+                        <button onClick={onIncrement} className="incre" id={"incre"+data.id} name="increment" type="button" style={{outline: 'transparent'}}>+</button>
                         <br />
                         <br />
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
