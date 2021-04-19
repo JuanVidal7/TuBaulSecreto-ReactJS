@@ -370,7 +370,7 @@ label, legend, input, textarea, select {
   text-align: left; }
 
   #decre{
-    width: 100px; 
+    width: 50px; 
     font-size: 20px;
     font-weight: bold; 
     background-color: white; 
@@ -386,7 +386,7 @@ label, legend, input, textarea, select {
   }
 
   #incre{
-    width: 100px; 
+    width: 50px; 
     font-size: 20px; 
     font-weight: bold; 
     background-color: white; 
@@ -402,7 +402,7 @@ label, legend, input, textarea, select {
   }
 
   .inputValor{
-    width: 200px; 
+    width: 140px; 
     font-size: 20px; 
     text-align: center; 
     outline: none; 

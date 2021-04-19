@@ -1,28 +1,46 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import ItemList from './ItemList';
+import datajson from './Products.json';
 
-export default class ItemListContainer extends React.Component {
-    state = {
-        hour: null,
-        username: 'Juan!'
-    }
+export default function ItemListContainer() {
 
-    componentDidMount() {
-        this.getHour()
-    }
+    const [data, setData] = useState([]);
 
-    getHour = () => {
-        const date = new Date();
-        const hour = date.getHours()
-        this.setState({
-            hour
-        });
-    }
+    useEffect(() => {
+        setTimeout(() => {
+            setData(datajson);
+        }, 2000);
+    }, []);
 
-    render() {
-        const { hour, username } = this.state;
-        return (
-            <h2 style={{marginTop: '50px'}}>{hour < 12 ? `¡Buenos días ${username}` : `Buenas tardes ${username}`}</h2>
-        );
-    }
-
+    return(
+        <div>
+            <ItemList dataInput={data}/>
+        </div>
+    )
 }
+// export default class ItemListContainer extends React.Component {
+//     state = {
+//         hour: null,
+//         username: 'Juan!'
+//     }
+
+//     componentDidMount() {
+//         this.getHour()
+//     }
+
+//     getHour = () => {
+//         const date = new Date();
+//         const hour = date.getHours()
+//         this.setState({
+//             hour
+//         });
+//     }
+
+//     render() {
+//         const { hour, username } = this.state;
+//         return (
+//             <h2 style={{ marginTop: '50px' }}>{hour < 12 ? `¡Buenos días ${username}` : `Buenas tardes ${username}`}</h2>
+//         );
+//     }
+
+// }

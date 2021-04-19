@@ -12,7 +12,7 @@ function App() {
                 <div className="menu">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Home<span className="sr-only">(current)</span></a>
+                            <a className="nav-link" href="#/">Home<span className="sr-only">(current)</span></a>
                         </li>
                         <img className="key" src={llave} alt="Key" />
                         <li className="nav-item">

@@ -4,11 +4,11 @@ import hersheyblanca from './hersheyblanca.png';
 
 function Counter({ increment, decrement, valor }) {
     return (
-        <div class="container">
-            <div class="row row-cols-1 row-cols-md-2" style={{justifyContent: 'center'}} >
+        <div className="container">
+            <div className="row row-cols-1 row-cols-md-3" >
                 <div className="col mb-4" style={{ marginTop: '50px' }}>
                     <div className="card h-100 shadow p-3 mb-5 bg-white rounded" style={{marginBottom: '0'}}>
-                        <img src={hersheyblanca} className="card-img-top" />
+                        <img src={hersheyblanca} alt="Hershey's Blanca" className="card-img-top" />
                         <div className="card-body">
                             <h5 className="card-title">Chocolatina Hershey's Blanca</h5>
                             <p className="card-text">Cookies 'n' creme es una barrita de chocolate blanco con bits de galleta similares en sabor y textura a las Oreo.</p>
@@ -41,7 +41,7 @@ export default function ItemCount() {
     function onIncrement() {
         setNumber(number + 1);
 
-        if (number == stock) {
+        if (number === stock) {
             document.getElementById('incre').setAttribute('disabled', true)
             document.getElementById('mensajeStock').style.display='block'
         } else if (number < stock) {
