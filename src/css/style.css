@@ -369,7 +369,7 @@ label, legend, input, textarea, select {
 .card-text-b {
   text-align: left; }
 
-  #decre{
+  .decre{
     width: 50px; 
     font-size: 20px;
     font-weight: bold; 
@@ -385,7 +385,7 @@ label, legend, input, textarea, select {
     padding-bottom: 5px;
   }
 
-  #incre{
+  .incre{
     width: 50px; 
     font-size: 20px; 
     font-weight: bold; 

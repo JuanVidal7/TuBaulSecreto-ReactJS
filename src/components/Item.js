@@ -11,10 +11,10 @@ export default function Item({ data }) {
         setNumber(number + 1);
 
         if (number === stock) {
-            document.getElementById('incre').setAttribute('disabled', true)
-            document.getElementById('mensajeStock').style.display='block'
+            document.getElementById('incre'+data.id).setAttribute('disabled', true)
+            document.getElementById('mensajeStock'+data.id).style.display='block'
         } else if (number < stock) {
-            document.getElementById('decre').removeAttribute('disabled')
+            document.getElementById('decre'+data.id).removeAttribute('disabled')
         }
     }
 
@@ -22,15 +22,15 @@ export default function Item({ data }) {
         setNumber(number - 1);
 
         if (number < stock + 2) {
-            document.getElementById('incre').removeAttribute('disabled');
-            document.getElementById('mensajeStock').style.display='none'
+            document.getElementById('incre'+data.id).removeAttribute('disabled');
+            document.getElementById('mensajeStock'+data.id).style.display='none'
 
         }
 
         if (number <= 1) {
-            document.getElementById('decre').setAttribute('disabled', true)
+            document.getElementById('decre'+data.id).setAttribute('disabled', true)
         } else {
-            document.getElementById('decre').removeAttribute('disabled');
+            document.getElementById('decre'+data.id).removeAttribute('disabled');
         }
     }
     return (
@@ -42,15 +42,15 @@ export default function Item({ data }) {
                     <p className="card-text">{data.description}</p>
                     <br />
                     <div className="container-fluid">
-                        <button onClick={onDecrement} id="decre" name="decrement" type="button">-</button>
+                        <button onClick={onDecrement} className="decre" id={"decre"+data.id} name="decrement" type="button">-</button>
                         <input value={number} name="valores" type="text" className="inputValor" />
-                        <button onClick={onIncrement} id="incre" name="increment" type="button">+</button>
+                        <button onClick={onIncrement} className="incre" id={"incre"+data.id} name="increment" type="button">+</button>
                         <br />
                         <br />
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
                             <button className="botonAgregarCarrito">Agregar al Carrito</button>
                         </div>
-                        <p className="noStock" id="mensajeStock" style={{ display: 'none' }}>No hay Stock suficiente!</p>
+                        <p className="noStock" id={"mensajeStock"+data.id} style={{ display: 'none' }}>No hay Stock suficiente!</p>
                     </div>
                 </div>
             </div>
