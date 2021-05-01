@@ -437,3 +437,27 @@ label, legend, input, textarea, select {
     font-size: 20px;
     margin-top: 2rem;
   }
+
+  .cardNew{
+    margin-bottom: 0;
+    width: 30%; 
+  }
+
+  .btn-secondary:focus{
+    background-color: #000!Important;
+    outline: none!Important;
+
+  }
+
+  .btn:focus{
+    background-color: #000!Important;
+    outline: none!Important;
+  }
+
+
+  @media(max-width: 993px){
+    .cardNew{
+      margin-bottom: 0;
+      width: 100%; 
+    }
+  }

@@ -9,7 +9,7 @@ export default function ItemListContainer() {
     useEffect(() => {
         setTimeout(() => {
             setData(datajson);
-        }, 2000);
+        }, 500);
     }, []);
 
     return(
