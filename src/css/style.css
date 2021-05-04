@@ -454,10 +454,16 @@ label, legend, input, textarea, select {
     outline: none!Important;
   }
 
+  .cartTable{
+    width: 60%;
+  }
 
   @media(max-width: 993px){
     .cardNew{
       margin-bottom: 0;
       width: 100%; 
+    }
+    .cartTable{
+      width: 100%;
     }
   }

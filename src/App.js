@@ -9,12 +9,12 @@ import NosotrosPageContainer from './components/NosotrosPageContainer';
 import CarruselContainer from './components/CarruselContainer';
 import EscribenosContainer from './components/EscribenosContainer';
 import ItemDetail from './components/ItemDetail';
-import { CartContext } from './components/CartContext';
+import Contexto from './components/CartContext';
 import Cart from './components/Cart';
 
 function App() {
   return (
-    <CartContext.Provider value={[]}>
+    <Contexto>
       <Router>
         <div className="App">
           <CardWidget />
@@ -49,7 +49,7 @@ function App() {
           </Switch>
         </div>
       </Router>
-    </CartContext.Provider>
+    </Contexto>
   );
 }
 

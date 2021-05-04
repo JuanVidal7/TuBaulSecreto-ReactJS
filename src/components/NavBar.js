@@ -14,20 +14,20 @@ function App() {
             <div className="collapse navbar-collapse" style={{justifyContent: 'center'}} id="navbarText">
                 <div className="menu">
                     <ul className="navbar-nav">
-                        <li className="nav-item active">
-                            <a className="nav-link" onClick={() => history.push("/")} href="">Home<span className="sr-only">(current)</span></a>
+                        <li className="nav-item">
+                            <a className="nav-link" onClick={() => history.push("/")} href="/#">Home<span className="sr-only">(current)</span></a>
                         </li>
                         <img className="key" src={llave} alt="Key" />
                         <li className="nav-item">
-                            <a className="nav-link" onClick={() => history.push("/nosotros")} href="">Nosotros<span className="sr-only">(current)</span></a>
+                            <a className="nav-link" onClick={() => history.push("/nosotros")} href="/nosotros">Nosotros<span className="sr-only">(current)</span></a>
                         </li>
                         <img className="key" src={llave} alt="Key" />
                         <li className="nav-item">
-                            <a className="nav-link" onClick={() => history.push("/llenatubaul")} href="">Llena Tu Baúl<span className="sr-only">(current)</span></a>
+                            <a className="nav-link" onClick={() => history.push("/llenatubaul")} href="/llenatubaul">Llena Tu Baúl<span className="sr-only">(current)</span></a>
                         </li>
                         <img className="key" src={llave} alt="Key" />
                         <li className="nav-item">
-                            <a className="nav-link" onClick={() => history.push("/escribenos")} href="">Escríbenos<span className="sr-only">(current)</span></a>
+                            <a className="nav-link" onClick={() => history.push("/escribenos")} href="/escribenos">Escríbenos<span className="sr-only">(current)</span></a>
                         </li>
                     </ul>
                 </div>

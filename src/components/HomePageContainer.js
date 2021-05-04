@@ -12,7 +12,6 @@ export default function HomePageContainer() {
                 <div className="container">
                     <table className="table" align="center">
                         <thead className="thead-dark">
-                            <th colspan="3">Tipos de Baúl</th>
                             <tr>
                                 <th>Tamaño</th>
                                 <th>Características (Largo, Ancho, Alto)</th>
@@ -29,7 +28,7 @@ export default function HomePageContainer() {
                                 </td>
                                 <td>
                                     <ul>
-                                        <li><a href=""><img className="table__img" src={Baulito} alt="" /></a></li>
+                                        <li><a href="/#"><img className="table__img" src={Baulito} alt="" /></a></li>
                                         <li>Elegir este Baúl</li>
                                     </ul>
                                 </td>
@@ -45,7 +44,7 @@ export default function HomePageContainer() {
                                 </td>
                                 <td>
                                     <ul>
-                                        <li><a href=""><img className="table__img" src={Baulito} alt="" /></a></li>
+                                        <li><a href="/#"><img className="table__img" src={Baulito} alt="" /></a></li>
                                         <li>Elegir este Baúl</li>
                                     </ul>
                                 </td>
@@ -61,7 +60,7 @@ export default function HomePageContainer() {
                                 </td>
                                 <td>
                                     <ul>
-                                        <li><a href=""><img className="table__img" src={Baulito} alt="" /></a></li>
+                                        <li><a href="/#"><img className="table__img" src={Baulito} alt="" /></a></li>
                                         <li>Elegir este Baúl</li>
                                     </ul>
                                 </td>

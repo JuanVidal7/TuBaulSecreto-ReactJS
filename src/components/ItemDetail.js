@@ -1,25 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../css/style.css';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import { CartContext } from './CartContext';
 
 const { getPostById } = require('./postService');
 
-export default function ItemDetail({ cantidad }) {
+export default function ItemDetail() {
     let history = useHistory();
     const [number, setNumber] = useState(1);
     const stock = 5;
     const { productID } = useParams();
     const [product, setProduct] = useState([]);
+    const {agregarProducto} = useContext(CartContext)
 
     useEffect(() => {
         getPostById(productID)
             .then(res => setProduct(res))
     }, [productID])
 
+    let valorIni = product.price;
 
     function onIncrement() {
         setNumber(number + 1);
+
+        valorIni = valorIni * (number + 1);
+        document.getElementById('valorPRD').innerHTML = '$ ' + valorIni;
 
         if (number === stock) {
             document.getElementById('incre' + product.id).setAttribute('disabled', true)
@@ -32,6 +38,8 @@ export default function ItemDetail({ cantidad }) {
     function onDecrement() {
         if (number > 1) {
             setNumber(number - 1);
+            valorIni = valorIni * (number - 1);
+            document.getElementById('valorPRD').innerHTML = '$ ' + valorIni;
         }
 
         if (number < stock + 2) {
@@ -47,13 +55,15 @@ export default function ItemDetail({ cantidad }) {
         }
     }
 
-    function onAdd() {
+    function onAdd(number) {
+        let valor = 0;
+        valor = number * product.price;
+
         let modalBody = document.getElementById("modalBody");
+        modalBody.innerHTML = ('Se agregó al carrito ' + number + ' ' + product.title + ' por un valor de ' + valor);
 
-        cantidad = number;
-        modalBody.innerHTML = ('Se agregó al carrito ' + cantidad + ' ' + product.title);
+        agregarProducto({producto: product, cantidad: number, precio: valor})
     }
-
 
     return (
         <div className="col mb-4" style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>
@@ -62,15 +72,16 @@ export default function ItemDetail({ cantidad }) {
                 <div className="card-body">
                     <h5 className="card-title">{product.title}</h5>
                     <p className="card-text">{product.description}</p>
+                    <p className="card-text" style={{ display: 'flex', fontSize: '20px', marginBottom: '-5px', fontWeight: 'bold' }} id="valorPRD">$ {valorIni}</p>
                     <br />
                     <div className="container-fluid">
                         <button onClick={onDecrement} className="decre" id={"decre" + product.id} name="decrement" type="button" style={{ outline: 'transparent' }}>-</button>
-                        <input value={number} name="valores" type="text" className="inputValor" />
+                        <input value={number} name="valores" type="text" className="inputValor" readOnly/>
                         <button onClick={onIncrement} className="incre" id={"incre" + product.id} name="increment" type="button" style={{ outline: 'transparent' }}>+</button>
                         <br />
                         <br />
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <button data-toggle="modal" data-target="#staticBackdrop" className="botonAgregarCarrito" onClick={() => onAdd(cantidad)} id="addCarrito">Agregar al Carrito</button>
+                            <button data-toggle="modal" data-target="#staticBackdrop" className="botonAgregarCarrito" onClick={() => onAdd(number)} id="addCarrito">Agregar al Carrito</button>
                         </div>
                         <p className="noStock" id={"mensajeStock" + product.id} style={{ display: 'none' }}>No hay Stock suficiente!</p>
                     </div>
@@ -78,7 +89,7 @@ export default function ItemDetail({ cantidad }) {
             </div>
 
             {/* Modal */}
-            <div className="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div className="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -88,11 +99,11 @@ export default function ItemDetail({ cantidad }) {
                             </button> */}
                         </div>
                         <div className="modal-body" id="modalBody">
-                            
+
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" style={{border: 'none'}} data-dismiss="modal" onClick={() => history.push("/llenatubaul")}>Seguir comprando</button>
-                            <button type="button" className="btn btn-secondary" style={{border: 'none'}} data-dismiss="modal" onClick={() => history.push("/cart")}>Ir al Carrito</button>
+                            <button type="button" className="btn btn-secondary" style={{ border: 'none' }} data-dismiss="modal" onClick={() => history.push("/llenatubaul")}>Seguir comprando</button>
+                            <button type="button" className="btn btn-secondary" style={{ border: 'none' }} data-dismiss="modal" onClick={() => history.push("/cart")}>Ir al Carrito</button>
                         </div>
                     </div>
                 </div>
