@@ -1,20 +1,28 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList';
-import datajson from './Products.json';
+import db from './Firebase';
+
+const productsCollection = db.collection('productos').orderBy('id', 'asc');
+
+export function getProducts() {
+    return productsCollection.get()
+        .then(snapshot => {
+            return snapshot.docs.map(doc => doc.data())
+        })
+}
 
 export default function ItemListContainer() {
 
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        setTimeout(() => {
-            setData(datajson);
-        }, 500);
+        getProducts()
+            .then(data => setData(data))
     }, []);
 
-    return(
+    return (
         <div>
-            <ItemList dataInput={data}/>
+            <ItemList dataInput={data} />
         </div>
     )
 }

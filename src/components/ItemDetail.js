@@ -3,8 +3,16 @@ import '../css/style.css';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { CartContext } from './CartContext';
+import db from './Firebase';
 
-const { getPostById } = require('./postService');
+const productsCollection = db.collection('productos');
+
+export function getProductsById(idProduct) {
+    return productsCollection.where('id', '==', parseInt(idProduct)).get()
+        .then(snapshot => {
+            return snapshot.docs.map(doc => doc.data())
+        })
+}
 
 export default function ItemDetail() {
     let history = useHistory();
@@ -15,9 +23,20 @@ export default function ItemDetail() {
     const {agregarProducto} = useContext(CartContext)
 
     useEffect(() => {
-        getPostById(productID)
-            .then(res => setProduct(res))
-    }, [productID])
+        const productsCollection = db.collection('productos');
+        const producto = productsCollection.doc(productID);
+        producto.get().then((doc) => {
+            if (!doc) {
+                console.log('el item no existe');
+            }
+            setProduct({ id: doc.id, ...doc.data() })
+        });
+    },[]);
+
+    // useEffect(() => {
+    //     getProductsById(productID)
+    //         .then(res => setProduct(res))
+    // }, [productID])
 
     let valorIni = product.price;
 
@@ -111,3 +130,12 @@ export default function ItemDetail() {
         </div>
     )
 }
+
+// export function getProductsById(idProduct) {
+//     return new Promise((resolve, reject) => {
+//       fetch(`https://my-json-server.typicode.com/JuanVidal7/mockjson/products/${idProduct}`)
+//         .then(res => res.json())
+//         .then(data => resolve(data))
+//         .catch(err => reject(err))
+//     })
+//   }
