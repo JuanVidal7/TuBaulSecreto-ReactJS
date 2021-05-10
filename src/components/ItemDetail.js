@@ -31,7 +31,7 @@ export default function ItemDetail() {
             }
             setProduct({ id: doc.id, ...doc.data() })
         });
-    },[]);
+    },[productID]);
 
     // useEffect(() => {
     //     getProductsById(productID)
