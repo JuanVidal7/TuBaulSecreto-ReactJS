@@ -33,11 +33,6 @@ export default function ItemDetail() {
         });
     },[productID]);
 
-    // useEffect(() => {
-    //     getProductsById(productID)
-    //         .then(res => setProduct(res))
-    // }, [productID])
-
     let valorIni = product.price;
 
     function onIncrement() {
@@ -130,12 +125,3 @@ export default function ItemDetail() {
         </div>
     )
 }
-
-// export function getProductsById(idProduct) {
-//     return new Promise((resolve, reject) => {
-//       fetch(`https://my-json-server.typicode.com/JuanVidal7/mockjson/products/${idProduct}`)
-//         .then(res => res.json())
-//         .then(data => resolve(data))
-//         .catch(err => reject(err))
-//     })
-//   }
