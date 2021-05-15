@@ -49,7 +49,7 @@ export default function Cart() {
 
     return (
         <div>
-            {carrito.length === 0 && <h4 style={{ marginTop: '40px', marginBottom: '-30px', fontFamily: 'Poppins' }}>El Carrito está vacío</h4>}
+            {carrito.length === 0 && orderId === '' && <h4 style={{ marginTop: '40px', marginBottom: '-30px', fontFamily: 'Poppins' }}>El Carrito está vacío</h4>}
             {orderId === '' &&
                 <div className="container-fluid cartTable">
                     <div className="table-responsive" style={{ marginTop: '50px' }}>
