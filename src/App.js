@@ -11,7 +11,6 @@ import EscribenosContainer from './components/EscribenosContainer';
 import ItemDetail from './components/ItemDetail';
 import Contexto from './components/CartContext';
 import Cart from './components/Cart';
-// import Checkout from './components/Checkout';
 
 function App() {
   return (
@@ -47,11 +46,8 @@ function App() {
               <Cart />
             </Route>
 
-            {/* <Route path="/checkout">
-              <Checkout />
-            </Route>         */}
-
           </Switch>
+
         </div>
       </Router>
     </Contexto>

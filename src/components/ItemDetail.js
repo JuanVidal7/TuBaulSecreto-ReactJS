@@ -17,7 +17,6 @@ export function getProductsById(idProduct) {
 export default function ItemDetail() {
     let history = useHistory();
     const [number, setNumber] = useState(1);
-    const stock = 5;
     const { productID } = useParams();
     const [product, setProduct] = useState([]);
     const {agregarProducto} = useContext(CartContext)
@@ -40,13 +39,6 @@ export default function ItemDetail() {
 
         valorIni = valorIni * (number + 1);
         document.getElementById('valorPRD').innerHTML = '$ ' + valorIni;
-
-        if (number === stock) {
-            document.getElementById('incre' + product.id).setAttribute('disabled', true)
-            document.getElementById('mensajeStock' + product.id).style.display = 'block'
-        } else if (number < stock) {
-            document.getElementById('decre' + product.id).removeAttribute('disabled')
-        }
     }
 
     function onDecrement() {
@@ -54,12 +46,6 @@ export default function ItemDetail() {
             setNumber(number - 1);
             valorIni = valorIni * (number - 1);
             document.getElementById('valorPRD').innerHTML = '$ ' + valorIni;
-        }
-
-        if (number < stock + 2) {
-            document.getElementById('incre' + product.id).removeAttribute('disabled');
-            document.getElementById('mensajeStock' + product.id).style.display = 'none'
-
         }
 
         if (number <= 1) {
@@ -97,7 +83,6 @@ export default function ItemDetail() {
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
                             <button data-toggle="modal" data-target="#staticBackdrop" className="botonAgregarCarrito" onClick={() => onAdd(number)} id="addCarrito">Agregar al Carrito</button>
                         </div>
-                        <p className="noStock" id={"mensajeStock" + product.id} style={{ display: 'none' }}>No hay Stock suficiente!</p>
                     </div>
                 </div>
             </div>
@@ -108,9 +93,6 @@ export default function ItemDetail() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="staticBackdropLabel">Confirmación</h5>
-                            {/* <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button> */}
                         </div>
                         <div className="modal-body" id="modalBody">
 

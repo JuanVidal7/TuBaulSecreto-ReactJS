@@ -4,7 +4,9 @@ import { CartContext } from './CartContext';
 import Eliminar from './eliminar.png'
 import db from './Firebase';
 
+
 export default function Cart() {
+
 
     const { carrito } = useContext(CartContext)
     const { eliminarProducto } = useContext(CartContext)
@@ -37,15 +39,18 @@ export default function Cart() {
     function validarForm(e) {
         e.preventDefault();
         if ((name === '') || (email === '') || (phone === '')) {
-            return alert('Debes diligenciar todos los campos')
+            return document.getElementById('alertCompra').style.display = 'block';
         }
         orderCollection.add(orden).then(({ id }) => setOrderId(id));
         document.getElementById('termCompra').style.display = 'none';
-        document.getElementById('verOrden').style.display = 'block';
-        vaciarCarrito();
+        document.getElementById('alertCompra').style.display = 'none';       
     }
 
-    console.log(orderId)
+    function finalizarCompra(){
+        window.print();
+        vaciarCarrito();
+        window.location = "/llenatubaul";
+    }
 
     return (
         <div>
@@ -85,6 +90,9 @@ export default function Cart() {
                         </table>
                         {carrito.length !== 0 && <button onClick={() => vaciarCarrito()} className="botonAgregarCarrito">Vaciar Carrito</button>}
                         <hr style={{ marginTop: '40px' }} />
+                        <div className="alert alert-danger" role="alert" id="alertCompra" style={{ display: 'none' }}>
+                            Debes diligenciar todos los campos.
+                        </div>
                         {carrito.length !== 0 &&
                             <div className="container" style={{ marginTop: '30px', marginBottom: '200px' }}>
                                 <h5 style={{ fontFamily: 'Poppins', marginBottom: '20px' }}>Diligencia los siguientes datos para terminar la compra y generar la órden</h5>
@@ -92,36 +100,65 @@ export default function Cart() {
                                     <input className="main-form__input" type="text" placeholder="Nombre" onChange={handleForm} name="name" value={name} /><br />
                                     <input className="main-form__input" type="text" placeholder="Email" onChange={handleForm} name="email" value={email} /><br />
                                     <input className="main-form__input" type="text" placeholder="Teléfono" onChange={handleForm} name="phone" value={phone} /><br />
-                                    <button type="submit" style={{ marginTop: '20px' }} className="botonAgregarCarrito" id="termCompra">Terminar Compra</button>
+                                    <button type="submit" style={{ marginTop: '20px' }} className="botonAgregarCarrito" id="termCompra">Generar Órden de Compra</button>
                                 </form>
                             </div>
                         }
                     </div>
                 </div>
             }
-            <div className="container" style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
-                <button data-toggle="modal" data-target="#staticBackdrop" style={{ marginTop: '20px', display: 'none' }} className="botonAgregarCarrito" id="verOrden">Ver Orden</button>
-            </div>
-
-            {/* Modal */}
             {orderId !== '' &&
-                <div className="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div className="modal-dialog modal-dialog-centered">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="staticBackdropLabel">Orden de Compra</h5>
-                                {/* <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button> */}
-                            </div>
-                            <div className="modal-body" id="modalBody">
-                                Su orden es {orderId}
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" style={{ border: 'none' }} data-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
+                <div className="container-fluid cartTable" style={{ marginBottom: '200px' }}>
+                    <div className="table-responsive" style={{ marginTop: '50px' }}>
+                        <table className="table table-hover" style={{ width: '100%' }}>
+                            <thead className="thead-dark">
+                                <tr><th style={{ borderTopLeftRadius: '25px', borderTopRightRadius: '25px', border: 'none' }} colSpan="5">ORDEN DE COMPRA</th></tr>
+                                <tr>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col" colSpan="2">Datos Comprador</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="table-secondary">
+                                    <td style={{ fontWeight: 'bold' }}></td>
+                                    <td style={{ fontWeight: 'bold' }}></td>
+                                    <td style={{ fontWeight: 'bold' }}></td>
+                                    <td style={{ fontWeight: 'bold' }} colSpan="2">Nombre: {name}</td>
+                                </tr>
+                                <tr className="table-secondary">
+                                    <td style={{ fontWeight: 'bold' }}></td>
+                                    <td style={{ fontWeight: 'bold' }}></td>
+                                    <td style={{ fontWeight: 'bold' }}></td>
+                                    <td style={{ fontWeight: 'bold' }} colSpan="2">Email: {email}</td>
+                                </tr>
+                                <tr className="table-secondary">
+                                    <td style={{ fontWeight: 'bold' }}></td>
+                                    <td style={{ fontWeight: 'bold' }}></td>
+                                    <td style={{ fontWeight: 'bold' }}></td>
+                                    <td style={{ fontWeight: 'bold' }} colSpan="2">Teléfono: {phone}</td>
+                                </tr>
+                                {carrito.map((item) => (
+                                    <tr className="table-warning" key={item.producto.id}>
+                                        <td>{item.producto.title}</td>
+                                        <td>{item.cantidad}</td>
+                                        <td>{item.precio}</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                ))}
+                                <tr className="table-secondary">
+                                    <td style={{ fontWeight: 'bold', borderBottomLeftRadius: '25px' }}>Total</td>
+                                    <td style={{ fontWeight: 'bold' }}>{itemsQty}</td>
+                                    <td style={{ fontWeight: 'bold' }}>{itemsPrice}</td>
+                                    <td style={{ fontWeight: 'bold' }}></td>
+                                    <td style={{ fontWeight: 'bold', borderBottomRightRadius: '25px', backgroundColor: '#ffeeba' }}>Órden de Compra: {orderId}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
+                    <button style={{ marginTop: '20px' }} className="botonAgregarCarrito" onClick={() => finalizarCompra()} id="termCompra">Finalizar Compra</button>
                 </div>
             }
         </div>
