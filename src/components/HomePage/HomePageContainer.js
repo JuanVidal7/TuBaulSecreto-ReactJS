@@ -1,6 +1,6 @@
 import React from 'react'
-import '../css/style.css';
-import Baulito from './baul128.png';
+import '../../css/style.css';
+import Baulito from './../img/baul128.png';
 
 export default function HomePageContainer() {
     return (

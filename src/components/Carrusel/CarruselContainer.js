@@ -1,6 +1,6 @@
 import React from 'react'
-import '../css/style.css';
-import LogoTBS from './TuBaulSecretoLogo.png';
+import '../../css/style.css';
+import LogoTBS from './../img/TuBaulSecretoLogo.png';
 
 export default function CarruselContainer() {
     return (

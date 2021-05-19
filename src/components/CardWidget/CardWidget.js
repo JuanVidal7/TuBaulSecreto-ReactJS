@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import '../css/style.css';
-import facebook from './facebook.png';
-import instagram from './instagram.png';
+import '../../css/style.css';
+import facebook from './../img/facebook.png';
+import instagram from './../img/instagram.png';
 import { useHistory } from 'react-router-dom';
-import { CartContext } from './CartContext';
-import logocarrito from './carrito.png';
+import { CartContext } from './../CartContext/CartContext';
+import logocarrito from './../img/carrito.png';
 
 
 export default function CardWidget() {

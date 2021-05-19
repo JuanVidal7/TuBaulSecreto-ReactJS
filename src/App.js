@@ -1,16 +1,17 @@
 import './App.css';
 import './index.css';
-import NavBar from './components/NavBar';
-import CardWidget from './components/CardWidget';
-import ItemListContainer from './components/ItemListContainer';
+import NavBar from './components/NavBar/NavBar';
+import CardWidget from './components/CardWidget/CardWidget';
+import ItemListContainer from './components/LlenaTuBaulPage/ItemListContainer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import HomePageContainer from './components/HomePageContainer';
-import NosotrosPageContainer from './components/NosotrosPageContainer';
-import CarruselContainer from './components/CarruselContainer';
-import EscribenosContainer from './components/EscribenosContainer';
-import ItemDetail from './components/ItemDetail';
-import Contexto from './components/CartContext';
-import Cart from './components/Cart';
+import HomePageContainer from './components/HomePage/HomePageContainer';
+import NosotrosPageContainer from './components/NosotrosPage/NosotrosPageContainer';
+import CarruselContainer from './components/Carrusel/CarruselContainer';
+import EscribenosContainer from './components/EscribenosPage/EscribenosContainer';
+import ItemDetail from './components/LlenaTuBaulPage/ItemDetail';
+import Contexto from './components/CartContext/CartContext';
+import Cart from './components/Cart/Cart';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
 
         </div>
       </Router>
+      <Footer />
     </Contexto>
   );
 }

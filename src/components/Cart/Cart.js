@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
-import '../css/style.css';
-import { CartContext } from './CartContext';
-import Eliminar from './eliminar.png'
-import db from './Firebase';
+import '../../css/style.css';
+import { CartContext } from '../CartContext/CartContext';
+import Eliminar from './../img/eliminar.png'
+import db from '../Firebase/Firebase';
 
 
 export default function Cart() {
@@ -94,7 +94,7 @@ export default function Cart() {
                             Debes diligenciar todos los campos.
                         </div>
                         {carrito.length !== 0 &&
-                            <div className="container" style={{ marginTop: '30px', marginBottom: '200px' }}>
+                            <div className="container" style={{ marginTop: '30px'}}>
                                 <h5 style={{ fontFamily: 'Poppins', marginBottom: '20px' }}>Diligencia los siguientes datos para terminar la compra y generar la órden</h5>
                                 <form onSubmit={validarForm}>
                                     <input className="main-form__input" type="text" placeholder="Nombre" onChange={handleForm} name="name" value={name} /><br />
@@ -108,7 +108,7 @@ export default function Cart() {
                 </div>
             }
             {orderId !== '' &&
-                <div className="container-fluid cartTable" style={{ marginBottom: '200px' }}>
+                <div className="container-fluid cartTable" style={{ marginBottom: '100px' }}>
                     <div className="table-responsive" style={{ marginTop: '50px' }}>
                         <table className="table table-hover" style={{ width: '100%' }}>
                             <thead className="thead-dark">

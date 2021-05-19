@@ -1,5 +1,5 @@
-import llave from './llave.png';
-import '../css/style.css';
+import llave from './../img/llave.png';
+import '../../css/style.css';
 import {useHistory} from 'react-router-dom';
 
 

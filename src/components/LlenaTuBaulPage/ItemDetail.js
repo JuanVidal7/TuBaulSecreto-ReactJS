@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import '../css/style.css';
+import '../../css/style.css';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { CartContext } from './CartContext';
-import db from './Firebase';
+import { CartContext } from '../CartContext/CartContext';
+import db from '../Firebase/Firebase';
 
 const productsCollection = db.collection('productos');
 
@@ -46,12 +46,6 @@ export default function ItemDetail() {
             setNumber(number - 1);
             valorIni = valorIni * (number - 1);
             document.getElementById('valorPRD').innerHTML = '$ ' + valorIni;
-        }
-
-        if (number <= 1) {
-            document.getElementById('decre' + product.id).setAttribute('disabled', true)
-        } else {
-            document.getElementById('decre' + product.id).removeAttribute('disabled');
         }
     }
 

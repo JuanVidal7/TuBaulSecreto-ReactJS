@@ -2,6 +2,22 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## Librería Bootstrap
+```sh
+En el archivo index.html de la carpeta public, están los CDN de Boostrap usados en todo el proyecto.
+```
+
+## Puerto para Test
+```sh
+En el archivo package.json se encuentra el puerto para test configurado en el 3002
+```
+
+## Proceso de Compra en GIF
+```sh
+El archivo GIF con el proceso de compra se encuentra en la carpeta public, con el nombre ProcesoCompra.gif
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

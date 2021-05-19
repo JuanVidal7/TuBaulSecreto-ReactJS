@@ -1,8 +1,8 @@
 import React from 'react'
-import '../css/style.css';
-import facebookwhite from './facebook-white.png'
-import instagramwhite from './instagram-white.png'
-import LetraTBS from './LetraTBS.png'
+import '../../css/style.css';
+import facebookwhite from './../img/facebook-white.png'
+import instagramwhite from './../img/instagram-white.png'
+import LetraTBS from './../img/LetraTBS.png'
 
 export default function Footer() {
     return (

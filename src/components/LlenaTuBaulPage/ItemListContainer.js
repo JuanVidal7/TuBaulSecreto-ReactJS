@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList';
-import db from './Firebase';
+import db from '../Firebase/Firebase';
 
 const productsCollection = db.collection('productos').orderBy('id', 'asc')
 
