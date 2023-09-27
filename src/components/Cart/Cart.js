@@ -3,9 +3,11 @@ import '../../css/style.css';
 import { CartContext } from '../CartContext/CartContext';
 import Eliminar from './../img/eliminar.png'
 import db from '../Firebase/Firebase';
+import { useHistory } from 'react-router-dom';
 
 
 export default function Cart() {
+    let history = useHistory();
 
 
     const { carrito } = useContext(CartContext)
@@ -49,7 +51,7 @@ export default function Cart() {
     function finalizarCompra(){
         window.print();
         vaciarCarrito();
-        window.location = "/llenatubaul";
+        history.push("/llenatubaul");
     }
 
     return (
