@@ -48,11 +48,11 @@ export default function Cart() {
         document.getElementById('alertCompra').style.display = 'none';       
     }
 
-    function finalizarCompra(){
-        window.print();
-        vaciarCarrito();
-        history.push("/llenatubaul");
-    }
+    // function finalizarCompra(){
+    //     window.print();
+    //     vaciarCarrito();
+    //     history.push("/llenatubaul");
+    // }
 
     return (
         <div>
@@ -160,7 +160,7 @@ export default function Cart() {
                             </tbody>
                         </table>
                     </div>
-                    <button style={{ marginTop: '20px' }} className="botonAgregarCarrito" onClick={() => finalizarCompra()} id="termCompra">Finalizar Compra</button>
+                    <button style={{ marginTop: '20px' }} className="botonAgregarCarrito" onClick={() => history.push("/llenatubaul")} id="termCompra">Finalizar Compra</button>
                 </div>
             }
         </div>
