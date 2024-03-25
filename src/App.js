@@ -20,7 +20,7 @@ function App() {
           <CarruselContainer />
 
           <Switch>
-            <Route exact path="/llenatubaul">
+            <Route exact path="/">
               <ItemListContainer />
             </Route>
 

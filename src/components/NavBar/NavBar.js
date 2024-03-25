@@ -16,7 +16,7 @@ function App() {
                     <ul className="navbar-nav">
                         <img className="key" src={llave} alt="Key" />
                         <li className="nav-item">
-                            <a className="nav-link" onClick={() => history.push("/llenatubaul")} href="#/">Llena Tu Baúl<span className="sr-only">(current)</span></a>
+                            <a className="nav-link" onClick={() => history.push("/")} href="#/">Llena Tu Baúl<span className="sr-only">(current)</span></a>
                         </li>
                         <img className="key" src={llave} alt="Key" />
                     </ul>

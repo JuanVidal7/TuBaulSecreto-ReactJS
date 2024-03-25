@@ -92,7 +92,7 @@ export default function ItemDetail() {
 
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" style={{ border: 'none' }} data-dismiss="modal" onClick={() => history.push("/llenatubaul")}>Seguir comprando</button>
+                            <button type="button" className="btn btn-secondary" style={{ border: 'none' }} data-dismiss="modal" onClick={() => history.push("/")}>Seguir comprando</button>
                             <button type="button" className="btn btn-secondary" style={{ border: 'none' }} data-dismiss="modal" onClick={() => history.push("/cart")}>Ir al Carrito</button>
                         </div>
                     </div>
